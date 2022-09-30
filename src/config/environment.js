@@ -1,5 +1,7 @@
 'use strict';
 
+const constants = require('./constants');
+
 module.exports = (() => {
 
     const environment = {
@@ -8,7 +10,8 @@ module.exports = (() => {
             password: "",
             database: "",
             host: "",
-            dialect: "mysql"
+            dialect: process.env.DATABASE_DIALECT || constants.SUPPORTED_DATABASE.MONGO,// database choice
+            url: process.env.DATABASE_URI || '', // mongodb connection string
         } 
     };
 
